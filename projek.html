@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projek Saya</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header */
+    .Main-header {
+      background: #007bff;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .Judul1 {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+      padding: 6px 12px;
+      border-radius: 5px;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Section Projek */
+    #projek {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    #projek h2 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+
+    .projek-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .projek-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .projek-card h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .projek-card p {
+      font-size: 1rem;
+      color: #555;
+      margin: 15px 0;
+    }
+
+    .projek-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #007bff;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      .Main-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+     <header class="Main-header">
+        <div class="Judul1">Audy Gading Pramudya</div>
+        <nav>
+          <ul>
+            <li><a href="portofolio.html">Beranda</a></li>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="projek.html">Projek</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="projek">
+        <h2>Projek Saya</h2>
+        <div class="projek-card">
+          <h3>Website E-Commerce Sederhana</h3>
+          <img
+            src="projek jualan.png"
+            alt="Tampilan projek website e-commerce"
+            class="projek-img"
+          />
+          <p>
+            Sebuah website e-commerce sederhana yang berfungsi untuk menampilkan
+            berbagai produk kepada calon pembeli dengan antarmuka yang bersih dan
+            mudah digunakan. Projek ini saya rancang menggunakan Figma dan
+            diimplementasikan dengan HTML, CSS, dan JavaScript.
+          </p>
+
+          <img src="Screenshot 2025-04-24 202042.png" alt="">
+             <p>
+            Sebuah poster s sederhana yang berfungsi untuk menampilkan
+            berbagai produk kepada calon pembeli dengan antarmuka yang bersih dan
+            mudah digunakan. Projek ini saya rancang menggunakan Figma dan
+            diimplementasikan dengan HTML, CSS, dan JavaScript.
+          </p>
+
+
+        <iframe src="https://www.youtube.com/embed/5GI8haFglYE" allowfullscreen></iframe>
+
+        </div>
+      </section>
+
+      <footer>@ALL Audy Gading Pramudya</footer>
+</body>
+</html>

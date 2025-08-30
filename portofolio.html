@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gading | UI/UX & Full-Stack Developer</title>
+  <link rel="icon" href="assets/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon"  href="logo.jpg">
+  <style>
+    :root {
+      --primary: #007bff;
+      --primary-dark: #0056b3;
+      --accent: #2c3e50;
+      --bg: #ffffff;
+      --text: #34495e;
+      --text-light: #7f8c8d;
+      --card-bg: #ecf0f1;
+      --radius: 12px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      line-height: 1.7;
+    }
+
+    /* Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 1000;
+      width: 0;
+    }
+
+    /* Header & Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background: #fdfdfd;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease-in-out 0.5s both;
+    }
+
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid var(--primary);
+      box-shadow: var(--shadow);
+      margin-top: 2rem;
+      animation: zoomIn 1s ease-in-out 1s both;
+    }
+
+    /* Navigasi */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background: var(--primary);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    /* Sections */
+    section {
+      padding: 8rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    section p {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+
+    /* About Section */
+    #about p {
+      font-size: 1.25rem;
+    }
+
+    /* Projek Section */
+    .projek-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .projek-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .projek-card h3 {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .projek-img {
+      width: 100%;
+      max-width: 700px;
+      border-radius: var(--radius);
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .skills span {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .skills span:hover {
+      background: var(--primary);
+    }
+
+    /* Contact Section */
+    #contact a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      border-bottom: 2px solid transparent;
+    }
+
+    #contact a:hover {
+      border-color: var(--primary);
+    }
+
+    iframe {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-top: 3rem;
+      width: 100%;
+      max-width: 900px;
+      height: 450px;
+      border: none;
+    }
+
+    /* Scroll to top */
+    #to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 2rem;
+      cursor: pointer;
+      display: none;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    #to-top:hover {
+      background: var(--accent);
+      transform: scale(1.1) translateY(-5px);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1rem; }
+      nav ul { gap: 1rem; }
+      nav a { padding: 0.6rem 1rem; }
+      section { padding: 6rem 1.5rem; }
+      .projek-card { padding: 1.5rem; }
+      #to-top { width: 50px; height: 50px; font-size: 1.5rem; }
+    }
+
+    footer {
+        padding: 30px;
+        background-color: rgb(95, 95, 223);
+        color: white;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <div class="hero" id="home">
+    <img src="WhatsApp Image 2025-06-17 at 18.40.49.jpeg" alt="Foto Audy Gading Pramudya" class="profile-img">
+    <h1>Audy Gading Pramudya</h1>
+    <p>Siswa Rekayasa Perangkat Lunak | Calon UI/UX & Full-Stack Developer</p>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="portofolio.html" class="active">Beranda</a></li>
+      <li><a href="about.html">Tentang</a></li>
+      <li><a href="projek.html">Projek</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>Tentang Saya</h2>
+      <p>
+        Saya seorang siswa RPL yang bercita-cita menjadi seorang
+        <strong
+          >UI/UX Designer profesional sekaligus Full-Stack Developer</strong
+        >. Saya menyukai tantangan dalam membuat website yang tidak hanya
+        fungsional, tetapi juga memiliki desain yang intuitif dan menarik.
+        Proses ini bagi saya adalah perpaduan antara seni dan logika.
+      </p>
+    </section>
+
+    <section id="projek">
+      <h2>Projek Saya</h2>
+      <div class="projek-card">
+        <h3>Website E-Commerce Sederhana</h3>
+        <img
+          src="projek jualan.png"
+          alt="Tampilan projek website e-commerce"
+          class="projek-img"
+        />
+        <p>
+          Sebuah website e-commerce sederhana yang berfungsi untuk menampilkan
+          berbagai produk kepada calon pembeli dengan antarmuka yang bersih dan
+          mudah digunakan. Projek ini saya rancang menggunakan Figma dan
+          diimplementasikan dengan HTML, CSS, dan JavaScript.
+        </p>
+        <div class="skills">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Figma</span
+          ><span>Git</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Kontak Saya</h2>
+      <p>
+        Mari terhubung! Saya terbuka untuk kolaborasi, kesempatan kerja, atau
+        sekadar diskusi tentang teknologi dan desain.
+      </p>
+      <p>
+        <a href="mailto:Audygadingp17@gmail.com">Audygadingp17@gmail.com</a> |
+        <a href="tel:+628128873893">0812-8873-893</a>
+      </p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0125869400263!2d106.69970921476934!3d-6.262103495470717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f0ab51f47b85%3A0x6a0f622f6d0f1b2c!2sJl.%20Kayu%20Gede%201%2C%20Pd.%20Jagung%2C%20Kec.%20Serpong%20Utara%2C%20Kota%20Tangerang%20Selatan%2C%20Banten%2015326!5e0!3m2!1sid!2sid!4v1625076412497!5m2!1sid!2sid"
+        allowfullscreen=""
+        loading="lazy"
+        title="Lokasi Alamat Audy Gading Pramudya"
+      ></iframe>
+    </section>
+  </main>
+
+  <button id="to-top" title="Kembali ke atas">↑</button>
+
+  <footer>@ALL Audy gadiing Pramudya</footer>
+
+  <script>
+    // JavaScript untuk progress bar saat scroll
+    const progressBar = document.getElementById('progress-bar');
+    const updateProgressBar = () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+    };
+    window.addEventListener('scroll', updateProgressBar);
+
+    // JavaScript untuk tombol kembali ke atas
+    const toTopBtn = document.getElementById('to-top');
+    window.addEventListener('scroll', () => {
+      toTopBtn.style.display = window.scrollY > 500 ? 'block' : 'none';
+    });
+    toTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // JavaScript untuk navigasi aktif
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const handleScroll = () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+    };
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('DOMContentLoaded', handleScroll); // Run on page load
+  </script>
+</body>
+</html>

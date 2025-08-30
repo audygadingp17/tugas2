@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tentang Saya</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header */
+    .Main-header {
+      background: #007bff;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .Judul1 {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+      padding: 6px 12px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Section About */
+    #about {
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    #about h2 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    #about img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #007bff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    #about p {
+      font-size: 1.1rem;
+      color: #555;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #007bff;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* Responsif */
+    @media (max-width: 768px) {
+      .Main-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+      <header class="Main-header">
+        <div class="Judul1">Audy Gading Pramudya</div>
+        <nav>
+          <ul>
+            <li><a href="portofolio.html" class="active">Beranda</a></li>
+            <li><a href="about.html">Tentang</a></li>
+            <li><a href="projek.html">Projek</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="about">
+        <h2>Tentang Saya</h2>
+        <img src="WhatsApp Image 2025-06-17 at 18.40.49.jpeg" alt="gadiing">
+        <p>
+          Saya seorang siswa RPL yang bercita-cita menjadi seorang
+          <strong>UI/UX Designer profesional sekaligus Full-Stack Developer</strong>. 
+          Saya menyukai tantangan dalam membuat website yang tidak hanya
+          fungsional, tetapi juga memiliki desain yang intuitif dan menarik.
+          Proses ini bagi saya adalah perpaduan antara seni dan logika.
+        </p>
+      </section>
+  
+      <footer>@ALL Audy Gading Pramudya</footer>
+</body>
+</html>
